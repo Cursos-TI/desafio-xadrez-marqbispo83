@@ -15,7 +15,7 @@ int main() {
         printf("Direita.\n");
     }
 
-    printf("Movimento do Bispo\n"); //movimento do Bispo (Cima / Direita)
+    printf("\nMovimento do Bispo\n"); //movimento do Bispo (Cima / Direita)
     int i = 1;
 
     while (i <= bispo)  //usando while
@@ -24,7 +24,7 @@ int main() {
         i++;
     }
 
-    printf("Movimento da Rainha\n");    //movimento da Rainha (Esquerda)
+    printf("\nMovimento da Rainha\n");    //movimento da Rainha (Esquerda)
     int j = 1;
 
     do  //usando Do while
@@ -37,7 +37,7 @@ int main() {
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
     // Um loop pode representar a movimentação horizontal e outro vertical.
     
-    printf("Movimento do Cavalo.\n");
+    printf("\nMovimento do Cavalo.\n");
     int casasbaixo = 2;
     int casasesquerda = 1;
 
@@ -46,7 +46,7 @@ int main() {
 
         if(k == casasbaixo) {
             int l = 1;
-            while (l <= casasesquerda) {
+            while (l <= casasesquerda) {    //movimento para esquerda utilizando while
                 printf("Esquerda\n");
                 l++;
             }

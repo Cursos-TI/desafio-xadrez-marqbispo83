@@ -65,11 +65,11 @@
     // Inclua o uso de continue e break dentro dos loops.
 
     //  Configurações 
-const int TORRE_PASSES = 5;    // Torre: 5 casas para a direita
-const int BISPO_PASSES = 5;    // Bispo: 5 casas na diagonal (Cima + Direita)
-const int RAINHA_PASSES = 8;   // Rainha: 8 casas para a esquerda
-const int CAVALO_CIMA = 2;       // Cavalo: 2 casas para cima
-const int CAVALO_DIREITA = 1;    // Cavalo: 1 casa para a direita
+    int TORRE_PASSES = 5;    // Torre: 5 casas para a direita
+    int BISPO_PASSES = 5;    // Bispo: 5 casas na diagonal (Cima + Direita)
+    int RAINHA_PASSES = 8;   // Rainha: 8 casas para a esquerda
+    int CAVALO_CIMA = 2;       // Cavalo: 2 casas para cima
+    int CAVALO_DIREITA = 1;    // Cavalo: 1 casa para a direita
 
 
 //   Funções recursivas

@@ -4,7 +4,7 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
+/* int main() {
     // Nível Novato - Movimentação das Peças
     // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
     int torre = 5, rainha = 8, bispo = 5;   //variaveis e as quantidades de casas podem andar
@@ -51,14 +51,119 @@ int main() {
                 l++;
             }
         }
-    }
+    }  
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
+   return 0;
+}  */
+
+ 
+// Nível Mestre - Funções Recursivas e Loops Aninhados
     // Sugestão: Substitua as movimentações das peças por funções recursivas.
     // Exemplo: Crie uma função recursiva para o movimento do Bispo.
 
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
+
+    //  Configurações 
+const int TORRE_PASSES = 5;    // Torre: 5 casas para a direita
+const int BISPO_PASSES = 5;    // Bispo: 5 casas na diagonal (Cima + Direita)
+const int RAINHA_PASSES = 8;   // Rainha: 8 casas para a esquerda
+const int CAVALO_CIMA = 2;       // Cavalo: 2 casas para cima
+const int CAVALO_DIREITA = 1;    // Cavalo: 1 casa para a direita
+
+
+//   Funções recursivas
+
+// Torre: recursiva, move "Direita" 
+void torre_recursiva(int passos) {
+    if (passos > 0) {
+    printf("Direita\n");
+    torre_recursiva(passos - 1);
+    }
+}
+
+// Rainha: recursiva, move "Esquerda" 
+void rainha_recursiva(int passos) {
+    if (passos > 0){ 
+    printf("Esquerda\n");
+    rainha_recursiva(passos - 1);
+    }
+}
+
+/* Bispo: recursiva + loops aninhados
+   Loop externo = vertical (Cima)
+   Loop interno = horizontal (Direita) */
+void bispo_recursivo(int passos) {
+    if (passos <= 0) return;
+
+    int v;
+    for (v = 0; v < 1; v++) {   // vertical
+        printf("Cima ");
+        int h;
+        for (h = 0; h < 1; h++) {   // horizontal
+            printf("Direita");
+        }
+        printf("\n");
+    }
+
+    bispo_recursivo(passos - 1);
+}
+
+
+//   Cavalo — loops complexo
+
+void cavalo_movimento_complexo(int passoscima, int passosdireita) {
+    int repeticao = 1;
+    int externo;
+    for (externo = 0; externo < repeticao; externo++) {
+        int moverCima = 0;
+        int vertical = passoscima;
+
+        while (1) {
+            if (moverCima >= vertical) {
+                break;
+            }
+            printf("Cima\n");
+            moverCima++;
+
+            if (moverCima < vertical) {
+                continue;
+            }
+        }
+
+        int r, tentativas;
+        for (r = 0, tentativas = 0; r < passosdireita && tentativas < 10; tentativas++) {
+            if (tentativas > 5) {
+                break;
+            }
+            if (tentativas == 0) {
+                printf("Direita\n");
+                r++;
+            } else {
+                continue;
+            }
+            if (r >= passosdireita) {
+                break;
+            }
+        }
+    }
+}
+
+
+//   Função main
+
+int main() {
+    printf("Movimento da Torre:\n");
+    torre_recursiva(TORRE_PASSES);
+
+    printf("\nMovimento do Bispo:\n");
+    bispo_recursivo(BISPO_PASSES);
+
+    printf("\nMovimento da Rainha:\n");
+    rainha_recursiva(RAINHA_PASSES);
+
+    printf("\nMovimento do Cavalo:\n");
+    cavalo_movimento_complexo(CAVALO_CIMA, CAVALO_DIREITA);
 
     return 0;
 }
